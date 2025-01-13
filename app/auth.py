@@ -17,6 +17,8 @@ def allowed_file(filename):
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
+        if current_user.is_admin:
+            return redirect(url_for('admin.dashboard'))
         return redirect(url_for('main.dashboard'))
     
     form = LoginForm()
@@ -28,6 +30,8 @@ def login():
             db.session.commit()
             flash('Logged in successfully!', 'success')
             next_page = request.args.get('next')
+            if user.is_admin:
+                return redirect(next_page or url_for('admin.dashboard'))
             return redirect(next_page or url_for('main.dashboard'))
         flash('Please check your login details and try again.', 'error')
     return render_template('auth/login.html', form=form)
@@ -35,6 +39,8 @@ def login():
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
+        if current_user.is_admin:
+            return redirect(url_for('admin.dashboard'))
         return redirect(url_for('main.dashboard'))
     
     form = RegistrationForm()
