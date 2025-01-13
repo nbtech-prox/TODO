@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 import os
+from .config import config
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -11,12 +12,8 @@ csrf = CSRFProtect()
 def create_app():
     app = Flask(__name__)
     
-    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite')
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['DEBUG'] = True
-    app.config['WTF_CSRF_ENABLED'] = True
-    app.config['WTF_CSRF_SECRET_KEY'] = os.environ.get('WTF_CSRF_SECRET_KEY', 'csrf-key')
+    config_name = os.environ.get('FLASK_ENV', 'default')
+    app.config.from_object(config[config_name])
     
     db.init_app(app)
     login_manager.init_app(app)
