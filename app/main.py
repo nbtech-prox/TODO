@@ -14,7 +14,10 @@ def index():
 @main.route('/dashboard')
 @login_required
 def dashboard():
-    todos = Todo.query.filter_by(user_id=current_user.id).order_by(Todo.created_at.desc()).all()
+    if current_user.is_admin:
+        todos = Todo.query.order_by(Todo.created_at.desc()).all()
+    else:
+        todos = Todo.query.filter_by(user_id=current_user.id).order_by(Todo.created_at.desc()).all()
     return render_template('dashboard.html', todos=todos)
 
 @main.route('/todo/new', methods=['GET', 'POST'])
