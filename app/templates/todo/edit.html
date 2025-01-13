@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Edit Task</h1>
+            <a href="{{ url_for('main.dashboard') }}" class="text-blue-600 hover:text-blue-800">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Dashboard
+            </a>
+        </div>
+
+        <div class="bg-white shadow sm:rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+                <form action="{{ url_for('main.edit_todo', id=todo.id) }}" method="POST">
+                    {{ form.csrf_token }}
+                    <div class="space-y-6">
+                        <div>
+                            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                            <div class="mt-1">
+                                {{ form.title(class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md", placeholder="Enter task title", value=todo.title) }}
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                            <div class="mt-1">
+                                {{ form.description(class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md", rows="3", placeholder="Enter task description (optional)", value=todo.description) }}
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="priority" class="block text-sm font-medium text-gray-700">Priority</label>
+                            {{ form.priority(class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md") }}
+                        </div>
+
+                        <div class="flex items-center">
+                            <input type="checkbox" name="completed" id="completed"
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                                {% if todo.completed %}checked{% endif %}>
+                            <label for="completed" class="ml-2 block text-sm text-gray-900">
+                                Mark as completed
+                            </label>
+                        </div>
+
+                        <div class="flex justify-end space-x-3">
+                            <button type="submit"
+                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Update Task
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
