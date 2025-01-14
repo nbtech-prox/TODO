@@ -43,6 +43,13 @@ def users():
     users = User.query.order_by(User.created_at.desc()).all()
     return render_template('admin/users.html', users=users)
 
+@admin.route('/todos')
+@login_required
+@admin_required
+def todos():
+    todos = Todo.query.order_by(Todo.created_at.desc()).all()
+    return render_template('admin/todos.html', todos=todos)
+
 @admin.route('/user/<int:user_id>/toggle-admin', methods=['POST'])
 @login_required
 @admin_required
