@@ -1,4 +1,4 @@
-# Listify+ 📝✨
+# Listify+ 📝
 
 A modern, elegant task management system that helps you organize your life with style. Built with Flask and Tailwind CSS, Listify+ offers a seamless experience for managing tasks with advanced features for both users and administrators.
 
