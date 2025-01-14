@@ -196,6 +196,7 @@ For more information about GPL-3.0, visit: https://www.gnu.org/licenses/gpl-3.0.
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
+6. Clicking the star
 
 ## 📞 Support
 
