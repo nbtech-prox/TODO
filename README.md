@@ -41,7 +41,7 @@ A modern, elegant task management system that helps you organize your life with 
 
 1. Clone the repository (optional):
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/nbtech-prox/TODO.git
 cd TODO
 ```
 
@@ -208,4 +208,4 @@ For support, please create an issue in the repository or contact the development
 - All contributors and users
 
 ---
-Made with ❤️ by [Your Name/Team]
+Made with ❤️ by Nuno Batista - NBTech
