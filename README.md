@@ -1,6 +1,6 @@
-# TODO - Task Management System
+# Listify+ 📝✨
 
-A modern, secure, and user-friendly task management system built with Flask and Tailwind CSS. The system supports multiple user roles, task prioritization, and administrative features.
+A modern, elegant task management system that helps you organize your life with style. Built with Flask and Tailwind CSS, Listify+ offers a seamless experience for managing tasks with advanced features for both users and administrators.
 
 ## 🌟 Features
 
