@@ -86,7 +86,7 @@ The application will be available at `http://localhost:5000`
 
 ```
 TODO/
-├── app/                    # Application package
+├── app/                   # Application package
 │   ├── __init__.py        # App initialization
 │   ├── admin.py           # Admin views
 │   ├── auth.py            # Authentication views
@@ -101,11 +101,11 @@ TODO/
 │   └── db.sqlite          # SQLite database
 ├── .env                   # Environment variables
 ├── .env.example           # Example environment file
-├── .flaskenv             # Flask configuration
-├── .gitignore            # Git ignore rules
-├── README.md             # This file
-├── requirements.txt      # Python dependencies
-└── run.py               # Application entry point
+├── .flaskenv              # Flask configuration
+├── .gitignore             # Git ignore rules
+├── README.md              # This file
+├── requirements.txt       # Python dependencies
+└── run.py                 # Application entry point
 ```
 
 ## 🔧 Configuration
